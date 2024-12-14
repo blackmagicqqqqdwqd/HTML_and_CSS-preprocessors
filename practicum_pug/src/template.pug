@@ -1,0 +1,29 @@
+include components/data.pug
+include components/mixin.pug
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+    body 
+      block nav     
+        ul.nav
+            li.nav__item.nav__item_first
+                a(href= "#") Самые крупные города мира
+            each value, key  in dictMenu
+                if (title == key)
+                    li.nav__item.nav__item_active
+                        a(href= value)= key
+                else
+                    li.nav__item.nav__item_common
+                        a(href= value)= key
+            li.nav__item.nav__item_last
+                a(href= "#") &ensp;
+
+        block content
+        -// содержимое
+        block footer
+            div.footer
+                span.footer__text.footer__text_left © Фамилия И.О., группа, 2024-2025
+                span.footer__text.footer__text_right ✉ Контакты  

@@ -1,0 +1,559 @@
+
+extends template
+block variables
+    - var title = "Таблица"
+    -
+        var dictMenu = {
+            'Главная страница': 'index.html',
+            'Таблица': '.html',
+            'Москва': "description.html"
+        }
+    - var titles = ['Место', 'Город', 'Континент','Страна', 'Население тыс. чел','Площадь км', 'Плотность населения чел.']
+
+    - 
+        var values  = [
+        {
+        number: '1',
+        city: 'Токио — Иокогама',
+        region: 'Азия',
+        county: 'Япония',
+        population: '37785',
+        square: '8775',
+        density: '4306'
+        },
+        {
+            number: '2',
+            city: 'Джакарта',
+            region: 'Азия',
+            county: 'Индонезия',
+            population: '35386',
+            square: '3546',
+            density: '9980'
+        },
+        {
+            number: '3',
+            city: 'Дели',
+            region: 'Азия',
+            county: 'Индия',
+            population: '31190',
+            square: '2344',
+            density: '13307'
+        },
+        {
+            number: '4',
+            city: 'Гуанчжоу — Фошань',
+            region: 'Азия',
+            county: 'Китай',
+            population: '27119',
+            square: '4543',
+            density: '5970'
+        },
+        {
+            number: '5',
+            city: 'Мумбаи',
+            region: 'Азия',
+            county: 'Индия',
+            population: '25189',
+            square: '1046',
+            density: '24073'
+        },
+        {
+            number: '6',
+            city: 'Манила',
+            region: 'Азия',
+            county: 'Филиппины',
+            population: '24156',
+            square: '1911',
+            density: '12638'
+        },
+        {
+            number: '7',
+            city: 'Шанхай',
+            region: 'Азия',
+            county: 'Китай',
+            population: '24042',
+            square: '4333',
+            density: '5549'
+        },
+        {
+            number: '8',
+            city: 'Сеул',
+            region: 'Азия',
+            county: 'Республика Корея',
+            population: '23225',
+            square: '2769',
+            density: '8388'
+        },
+        {
+            number: '9',
+            city: 'Каир',
+            region: 'Африка',
+            county: 'Египет',
+            population: '22679',
+            square: '2696',
+            density: '8412'
+        },
+        {
+            number: '10',
+            city: 'Мехико',
+            region: 'Северная Америка',
+            county: 'Мексика',
+            population: '21905',
+            square: '2530',
+            density: '8657'
+        },
+        {
+            number: '11',
+            city: 'Калькутта',
+            region: 'Азия',
+            county: 'Индия',
+            population: '21747',
+            square: '1352',
+            density: '16085'
+        },
+        {
+            number: '12',
+            city: 'Сан-Паулу',
+            region: 'Сан-Паулу',
+            county: 'Бразилия',
+            population: '21486',
+            square: '3649',
+            density: '5888'
+        },
+        {
+            number: '13',
+            city: 'Нью-Йорк',
+            region: 'Северная Америка',
+            county: 'США',
+            population: '21396',
+            square: '11344',
+            density: '1886'
+        },
+        {
+            number: '14',
+            city: 'Карачи',
+            region: 'Азия',
+            county: 'Пакистан',
+            population: '20249',
+            square: '1124',
+            density: '18014'
+        },
+        {
+            number: '15',
+            city: 'Дакка',
+            region: 'Азия',
+            county: 'Бангладеш',
+            population: '19134',
+            square: '619',
+            density: '30911'
+        },
+        {
+        number: '16',
+        city: 'Бангкок',
+        region: 'Азия',
+        county: 'Таиланд',
+        population: '18884',
+        square: '619',
+        density: '5904'
+        },
+        {
+        number: '17',
+        city: 'Пекин',
+        region: 'Азия',
+        county: 'Китай',
+        population: '18883',
+        square: '4284',
+        density: '4408'
+        },
+        {
+        number: '18',
+        city: 'Москва',
+        region: 'Европа',
+        county: 'Россия',
+        population: '17878',
+        square: '6643',
+        density: '2691'
+        },
+        {
+        number: '19',
+        city: 'Шэньчжэнь',
+        region: 'Азия',
+        county: 'Китай',
+        population: '17778',
+        square: '1808',
+        density: '9834'
+        },
+        {
+        number: '20',
+        city: 'Буэнос-Айрес',
+        region: 'Южной Америка',
+        county: 'Аргентина',
+        population: '15748',
+        square: '3437',
+        density: '4582'
+        },
+        {
+        number: '21',
+        city: 'Лос-Анджелес',
+        region: 'Северная Америка',
+        county: 'США',
+        population: '15587',
+        square: '6918',
+        density: '2253'
+        },
+        {
+        number: '22',
+        city: 'Йоханнесбург — Экурхулени',
+        region: 'Африка',
+        county: 'ЮАР',
+        population: '15551',
+        square: '4040',
+        density: '3849'
+        },
+        {
+        number: '23',
+        city: 'Бангалор',
+        region: 'Азия',
+        county: 'Индия',
+        population: '15257',
+        square: '1743',
+        density: '8753'
+        },
+        {
+        number: '24',
+        city: 'Чэнду',
+        region: 'Азия',
+        county: 'Китай',
+        population: '15016',
+        square: '1935',
+        density: '7761'
+        },
+        {
+        number: '25',
+        city: 'Хошимин',
+        region: 'Азия',
+        county: 'Вьетнам',
+        population: '14953',
+        square: '2165',
+        density: '6906'
+        },
+        {
+        number: '26',
+        city: 'Осака — Кобе — Киото',
+        region: 'Азия',
+        county: 'Япония',
+        population: '14916',
+        square: '3020',
+        density: '4939'
+        },
+        {
+        number: '27',
+        city: 'Лагос',
+        region: 'Африка',
+        county: 'Нигерия',
+        population: '14540',
+        square: '2585',
+        density: '5625'
+        },
+        {
+        number: '28',
+        city: 'Стамбул',
+        region: 'Европа',
+        county: 'Турция',
+        population: '14441',
+        square: '1471',
+        density: '9816'
+        },
+        {
+        number: '29',
+        city: 'Лахор',
+        region: 'Азия',
+        county: 'Пакистан',
+        population: '13504',
+        square: '945',
+        density: '14285'
+        },
+        {
+        number: '30',
+        city: 'Киншаса',
+        region: 'Африка',
+        county: 'ДР Конго',
+        population: '13493',
+        square: '518',
+        density: '26048'
+        },
+        {
+        number: '31',
+        city: 'Тегеран',
+        region: 'Азия',
+        county: 'Иран',
+        population: '13382',
+        square: '1704',
+        density: '7852'
+        },
+        {
+        number: '32',
+        city: 'Чунцин',
+        region: 'Азия',
+        county: 'Китай',
+        population: '12653',
+        square: '1580',
+        density: '8009'
+        },
+        {
+        number: '33',
+        city: 'Рио-де-Жанейро',
+        region: 'Южной Америка',
+        county: 'Бразилия',
+        population: '12306',
+        square: '2020',
+        density: '6091'
+        },
+        {
+        number: '34',
+        city: 'Сиань',
+        region: 'Азия',
+        county: 'Китай',
+        population: '12211',
+        square: '1826',
+        density: '6688'
+        },
+        {
+        number: '35',
+        city: 'Ченнаи',
+        region: 'Азия',
+        county: 'Индия',
+        population: '11570',
+        square: '1225',
+        density: '9444'
+        },
+        {
+            number: '36',
+            city: 'Париж',
+            region: 'Европа',
+            county: 'Франция',
+            population: '11108',
+            square: '2854',
+            density: '3893'
+        },
+        {
+            number: '37',
+            city: 'Чжэнчжоу',
+            region: 'Азия',
+            county: 'Китай',
+            population: '11 068',
+            square: '1785',
+            density: '6202'
+        },
+        {
+            number: '38',
+            city: 'Луанда',
+            region: 'Африка',
+            county: 'Ангола',
+            population: '10 914',
+            square: '1005',
+            density: '10861'
+        },
+        {
+            number: '39',
+            city: 'Лондон',
+            region: 'Европа',
+            county: 'Великобритания',
+            population: '10 803',
+            square: '1738',
+            density: '6216'
+        },
+        {
+            number: '40',
+            city: 'Дунгуань',
+            region: 'Азия',
+            county: 'Китай',
+            population: '10 753',
+            square: '1759',
+            density: '6115'
+        },
+        {
+            number: '41',
+            city: 'Лима',
+            region: 'Южная Америка',
+            county: 'Перу',
+            population: '10 556',
+            square: '891',
+            density: '11848'
+        },
+        {
+            number: '42',
+            city: 'Ухань',
+            region: 'Азия',
+            county: 'Китай',
+            population: '10 353',
+            square: '1821',
+            density: '5686'
+        },
+        {
+            number: '43',
+            city: 'Богота',
+            region: 'Южная Америка',
+            county: 'Колумбия',
+            population: '10 252',
+            square: '562',
+            density: '18241'
+        },
+        {
+            number: '44',
+            city: 'Тяньцзинь',
+            region: 'Азия',
+            county: 'Китай',
+            population: '10 047',
+            square: '2813',
+            density: '3572'
+        },
+        {
+            number: '45',
+            city: 'Хайдарабад',
+            region: 'Азия',
+            county: 'Индия',
+            population: '9 797',
+            square: '1689',
+            density: '5802'
+        },
+        {
+            number: '46',
+            city: 'Тайбэй',
+            region: 'Азия',
+            county: 'Тайвань',
+            population: '9 662',
+            square: '1090',
+            density: '8861'
+        },
+        {
+            number: '47',
+            city: 'Ханчжоу',
+            region: 'Азия',
+            county: 'Китай',
+            population: '9 618',
+            square: '1344',
+            density: '7155'
+        },
+        {
+            number: '48',
+            city: 'Нагоя',
+            region: 'Азия',
+            county: 'Япония',
+            population: '9 439',
+            square: '3704',
+            density: '2549'
+        },
+        {
+            number: '49',
+            city: 'Куала-Лумпур',
+            region: 'Азия',
+            county: 'Малайзия',
+            population: '9 387',
+            square: '2163',
+            density: '4341'
+        },
+        {
+            number: '50',
+            city: 'Чикаго',
+            region: 'Северной Америка',
+            county: 'США',
+            population: '8 954',
+            square: '6532',
+            density: '1371'
+        }
+
+        ]
+
+block content 
+    
+    div.menu
+        details
+            summary График
+            form
+                
+                table.inf(width="70%")
+                    tr
+                        th(align="center") Значение по оси 0X
+                        th(align="center") Результат
+                    tr
+                        td
+                            br
+                            input(type="radio" name="gender1" value="w")
+                            label(for='gender1') Город:
+                            br
+                            input(type="radio" name="gender1" value="m")
+                            label(for='gender1') Континент:
+                            br   
+                        td
+                            input(type="checkbox" name="language" value="0")
+                            label(for='language') Средняя плотность населения 
+                            br
+                            input(type="checkbox" name="language" value="1")
+                            label(for='language') Суммарное население
+                            br
+                            input(type="checkbox" name="language" value="2")
+                            label(for='language') Суммарная площадь
+                            br
+                <input type="button" name="creat" value="Построить">
+                <p>Здесь будет график</p>    
+        details
+            summary Фильтр
+            form
+                p
+                    span Город 
+                    input(type="text" name="text_1")
+                p
+                    span Континент 
+                    input(type="text" name="text_2")
+                    
+                p
+                    span Страна 
+                    input(type="text" name="text_3")
+                
+                p
+                    span Население от 
+                    input(type="number" name="number_1") 
+                    label(for='number_1')  до 
+                    input(type="number" name="number_2")
+                p
+                    span Площадь от 
+                    input(type="number" name="number_3") 
+                    label(for='number_3') до 
+                    input(type="number" name="number_4")
+                p 
+                    span Плотность населения от 
+                    input(type="number" name="number_5")
+                    label(for='number_5') до 
+                    input(type="number" name="number_6")
+                input(type="button" value="Найти")                
+        details
+            summary Сортировка
+            form
+                p Первый уровень():
+                +createSelectMenu(titles,'language1')
+                |  по убыванию?
+                input(type="checkbox" name="t2" value="True")
+                p Второй уровень():
+                +createSelectMenu(titles,'language2')
+                |  по убыванию?
+                input(type="checkbox" name="t3" value="True")
+                p Третий уровень():
+                +createSelectMenu(titles,'language3')
+                |  по убыванию?
+                input(type="checkbox" name="t4" value="True")
+                p 
+                    input(type="button" value="Сортировать")
+                
+    div.information
+        table.information__table
+            +createTableTitle(titles)
+            each w in values 
+                tr
+                    td= w.number
+                    td= w.city 
+                    td= w.region 
+                    td= w.county 
+                    td= w.population 
+                    td= w.square 
+                    td= w.density

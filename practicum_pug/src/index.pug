@@ -1,0 +1,30 @@
+extends template
+block content
+    
+    div.gallery
+        - var i = 1
+        each reference, image in listImages2
+            - // чередуем картинки через одну 
+            if (i%2 ==0)
+                a.gallery__picture-block.gallery__picture-block_bottom(href= reference)
+                    img.gallery__picture-block-image(src= require("./images/" + image))
+            else
+                a.gallery__picture-block.gallery__picture-block_top(href= reference)
+                    img.gallery__picture-block-image(src= require("./images/" + image))
+            - i+=1
+
+    div.main
+        -var i = true
+        each section in main__sections
+            if (i)
+                div.main__section.main__section_left
+                    img(src= require("./images/" + section.image))
+                    h1.main__section-header= section.header
+                    div.main__section-text= section.text
+            else 
+                div.main__section.main__section_right
+                    img(src= require("./images/" + section.image))
+                    h1.main__section-header= section.header
+                    div.main__section-text= section.text            
+            - i = false
+                

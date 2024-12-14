@@ -1,0 +1,12 @@
+mixin createTableTitle(listLi=['нет списка'])
+    tr 
+        each name in listLi
+            th= name
+mixin createSelectMenu(listLi=['нет списка'], name)
+    select(name)
+        option(value="0", selected) Нет
+        -var i = 1
+        each w in listLi
+            option(value=i)=w
+            - i+=1
+    
